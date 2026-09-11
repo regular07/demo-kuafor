@@ -1,0 +1,387 @@
+/* ============================================================
+   Bakır Atölye — style.css
+   Bootstrap 5.3 CDN üzerine kurulu, tek sayfalık "Basic paket" teması.
+   Sıra: bu dosya index.html'de bootstrap.min.css'ten SONRA yüklenir,
+   böylece kurallarımız Bootstrap varsayılanlarını ezebilir.
+
+   İÇİNDEKİLER
+   01. Renk & font değişkenleri
+   02. Taşma önleme (mobil yatay scroll kesin engellensin)
+   03. Navbar
+   04. Hero
+   05. Hakkımızda
+   06. Hizmetler & fiyat tablosu
+   07. Galeri
+   08. Çalışma saatleri + harita
+   09. İletişim / footer
+   10. Sabit butonlar (WhatsApp / Ara / scroll-top)
+   11. Responsive ince ayarlar
+   ============================================================ */
+
+/* ============================================================
+   01. Renk & Font Değişkenleri
+   Kimlik: sıcak nötr + bakır. Bordo/pembe tonlardan kaçınıyoruz ki
+   "feminen" değil, zarif ve cinsiyetsiz bir salon kimliği olsun.
+   ============================================================ */
+:root {
+  --ink: #211a17;         /* neredeyse siyah, sıcak kahve tonu */
+  --charcoal: #34281f;
+  --copper: #a8632f;      /* ana vurgu rengi */
+  --copper-light: #c98a52;
+  --gold: #cba05a;
+  --cream: #f6efe6;       /* zemin */
+  --cream-2: #ece0cf;
+  --paper: #fffaf3;
+  --txt-mid: #5c4b3d;
+  --txt-light: #8a7562;
+  --border: rgba(52, 40, 31, 0.14);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 2px 14px rgba(33, 26, 23, 0.08);
+  --shadow-md: 0 12px 30px rgba(33, 26, 23, 0.16);
+  --tr: 0.25s ease;
+
+  --bs-primary: var(--copper);
+  --bs-primary-rgb: 168, 99, 47;
+  --bs-body-font-family: 'Jost', sans-serif;
+  --bs-body-color: var(--ink);
+  --bs-link-color: var(--copper);
+  --bs-link-hover-color: var(--charcoal);
+}
+
+h1, h2, h3, .navbar-brand, .footer-brand {
+  font-family: 'Fraunces', serif;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   02. Taşma Önleme
+   box-sizing + html/body overflow-x:hidden ikilisi: dar ekranda
+   (360px/390px) yatay kaydırma çubuğu KESİNLİKLE çıkmasın diye.
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  background: var(--cream);
+}
+img { max-width: 100%; height: auto; }
+
+.section { padding: 4.5rem 0; }
+.section.alt { background: var(--cream-2); }
+
+.sec-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.sec-title {
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  margin-bottom: 1.5rem;
+}
+.sec-lead { color: var(--txt-mid); max-width: 640px; }
+
+.btn-brand {
+  background: var(--copper);
+  border-color: var(--copper);
+  color: var(--paper);
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.7rem 1.7rem;
+  min-height: 44px;
+  transition: transform var(--tr), box-shadow var(--tr), background var(--tr);
+}
+.btn-brand:hover {
+  background: var(--charcoal);
+  border-color: var(--charcoal);
+  color: var(--paper);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn-outline-brand {
+  border: 1.5px solid rgba(255,255,255,0.7);
+  color: var(--paper);
+  border-radius: 50px;
+  padding: 0.7rem 1.7rem;
+  min-height: 44px;
+  font-weight: 600;
+  transition: all var(--tr);
+}
+.btn-outline-brand:hover { background: rgba(255,255,255,0.12); color: var(--paper); }
+
+/* ============================================================
+   03. Navbar
+   ============================================================ */
+#mainNavbar {
+  background: rgba(246, 239, 230, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.65rem 0;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+#mainNavbar .container { min-width: 0; }
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--ink) !important;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.navbar-brand span { color: var(--copper); }
+
+.navbar-nav .nav-link {
+  color: var(--txt-mid);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.6rem 0.9rem !important;
+}
+.navbar-nav .nav-link:hover { color: var(--copper); }
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: var(--paper);
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem 1rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+  }
+  .navbar-nav .btn-brand { margin-top: 0.5rem; display: inline-block; }
+}
+
+/* ============================================================
+   04. Hero
+   ============================================================ */
+#hero {
+  position: relative;
+  min-height: 92vh;
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 7rem 0 4rem;
+  margin: 0;
+  background-image: url('assets/img/hero.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+@media (max-width: 600px) {
+  #hero { background-attachment: scroll; min-height: 100svh; }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(33,26,23,0.72), rgba(33,26,23,0.55) 60%, rgba(33,26,23,0.8));
+}
+.hero-inner { position: relative; z-index: 2; max-width: 680px; }
+.eyebrow { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.12em; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; }
+.hero-title { color: var(--paper); font-size: clamp(2rem, 6vw, 3.4rem); margin-bottom: 1.1rem; }
+.hero-sub { color: rgba(255,251,245,0.86); font-size: 1.05rem; max-width: 520px; margin-bottom: 2rem; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+/* ============================================================
+   05. Hakkımızda
+   ============================================================ */
+.about-stats { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; }
+.about-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 1.7rem; color: var(--copper); }
+.about-stat span { color: var(--txt-mid); font-size: 0.88rem; }
+
+.about-visual {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(150deg, var(--charcoal), var(--copper) 130%);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper);
+  padding: 2rem;
+  text-align: center;
+}
+.about-visual .quote-mark { font-family: 'Fraunces', serif; font-size: 3.5rem; line-height: 1; color: var(--gold); }
+.about-visual p { font-family: 'Fraunces', serif; font-size: 1.2rem; font-style: italic; margin-top: 0.5rem; }
+
+/* ============================================================
+   06. Hizmetler & Fiyat Tablosu
+   ============================================================ */
+.price-table {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+}
+.price-row:last-child { border-bottom: none; }
+.price-row .p-name { font-weight: 600; }
+.price-row .p-desc { color: var(--txt-light); font-size: 0.85rem; display: block; margin-top: 0.15rem; }
+.price-row .p-value { color: var(--copper); font-weight: 700; white-space: nowrap; font-family: 'Fraunces', serif; font-size: 1.05rem; }
+
+.service-group-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  margin: 2rem 0 0.75rem;
+}
+.service-group-title:first-child { margin-top: 0; }
+
+.price-note { color: var(--txt-light); font-size: 0.85rem; margin-top: 1rem; }
+
+/* ============================================================
+   07. Galeri — fotoğraf yerine tipografik/desen blokları
+   (marka güvenliği + hız: gerçek görsel şart değil, iyi tasarım
+   fotoğrafsız da satar)
+   ============================================================ */
+.gallery-item {
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.1rem;
+  color: var(--paper);
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  position: relative;
+  overflow: hidden;
+}
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+}
+.gallery-item span { position: relative; z-index: 1; }
+.g1::before { background: repeating-linear-gradient(135deg, var(--charcoal), var(--charcoal) 18px, #2c221c 18px, #2c221c 36px); }
+.g2::before { background: radial-gradient(circle at 30% 30%, var(--copper-light), var(--copper) 70%); }
+.g3::before { background: linear-gradient(160deg, var(--gold), var(--copper) 120%); }
+.g4::before { background: repeating-linear-gradient(45deg, var(--cream-2), var(--cream-2) 14px, #ddc9a8 14px, #ddc9a8 28px); }
+.g4 { color: var(--ink); }
+.g5::before { background: linear-gradient(200deg, var(--ink), var(--charcoal) 100%); }
+.g6::before { background: conic-gradient(from 180deg, var(--copper), var(--gold), var(--copper-light), var(--copper)); }
+
+/* ============================================================
+   08. Çalışma Saatleri + Harita
+   ============================================================ */
+.hours-list { list-style: none; padding: 0; margin: 0; }
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+  border-bottom: 1px dashed var(--border);
+  color: var(--txt-mid);
+}
+.hours-list li:last-child { border-bottom: none; }
+.hours-list li strong { color: var(--ink); }
+.hours-list li.today { color: var(--copper); font-weight: 700; }
+
+.map-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  min-height: 280px;
+}
+.map-frame iframe { width: 100%; height: 100%; min-height: 280px; border: 0; display: block; }
+
+/* ============================================================
+   09. İletişim / Footer
+   ============================================================ */
+.contact-panel {
+  background: var(--charcoal);
+  color: var(--cream);
+  border-radius: var(--radius);
+  padding: 2.25rem;
+}
+.contact-panel h2 { color: var(--paper); }
+.contact-list { list-style: none; padding: 0; margin: 1.25rem 0 1.75rem; }
+.contact-list li { margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.7rem; color: rgba(246,239,230,0.85); }
+.contact-list a { color: var(--gold); font-weight: 600; }
+.contact-list i { color: var(--gold); width: 1.2em; text-align: center; }
+
+.contact-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+#footer { background: var(--ink); color: var(--cream-2); padding: 2.5rem 0 1.5rem; }
+.footer-brand { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--paper); font-weight: 700; }
+.footer-brand span { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(246,239,230,0.12);
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: rgba(246,239,230,0.55);
+}
+
+/* ============================================================
+   10. Sabit Butonlar
+   ============================================================ */
+#whatsappFab, #callFab {
+  position: fixed;
+  right: 1.1rem;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  z-index: 999;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--tr);
+  color: #fff;
+}
+#whatsappFab { bottom: 1.1rem; background: #25d366; }
+#callFab { bottom: 5.4rem; background: var(--copper); }
+#whatsappFab:hover, #callFab:hover { color: #fff; transform: scale(1.07); }
+
+#scrollTop {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 9.6rem;
+  width: 42px; height: 42px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 50%;
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 998;
+  box-shadow: var(--shadow-sm);
+}
+#scrollTop.visible { display: flex; }
+
+/* ============================================================
+   11. Responsive İnce Ayarlar
+   ============================================================ */
+@media (max-width: 480px) {
+  .section { padding: 3.25rem 0; }
+  #hero { padding: 6rem 0 3rem; }
+  .hero-btns .btn { flex: 1 1 auto; text-align: center; }
+  .price-row { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+  .price-row .p-value { align-self: flex-end; }
+  #whatsappFab, #callFab { width: 50px; height: 50px; font-size: 1.3rem; }
+}

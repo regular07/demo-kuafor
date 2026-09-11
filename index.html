@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <!-- ============================================================
+       TEMEL META ETİKETLERİ
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bakır Atölye Kuaför &amp; Güzellik | Beşiktaş, İstanbul</title>
+  <meta name="description" content="Bakır Atölye — Beşiktaş'ta saç kesimi, boya, bakım ve cilt bakımı. Randevu için tek tıkla arayın veya WhatsApp'tan yazın. Fiyat listesi ve konum aşağıda." />
+  <meta name="keywords" content="beşiktaş kuaför, saç kesimi, saç boyası, cilt bakımı, kaş, manikür, güzellik salonu" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Bakır Atölye" />
+  <link rel="canonical" href="https://demo.demosantia.com/kuafor/" />
+
+  <!-- ============================================================
+       SEO — Open Graph ve Twitter Card
+       Site bir linkle (WhatsApp, Instagram bio vb.) paylaşıldığında
+       önizleme kartı buradan gelir.
+       ============================================================ -->
+  <meta property="og:type" content="business.business" />
+  <meta property="og:site_name" content="Bakır Atölye" />
+  <meta property="og:title" content="Bakır Atölye Kuaför & Güzellik | Beşiktaş, İstanbul" />
+  <meta property="og:description" content="Saç kesimi, boya, bakım ve cilt bakımı. Randevu için tek tıkla arayın." />
+  <meta property="og:image" content="assets/img/hero.jpg" />
+  <meta property="og:url" content="https://demo.demosantia.com/kuafor/" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bakır Atölye Kuaför & Güzellik" />
+  <meta name="twitter:description" content="Beşiktaş'ta saç kesimi, boya, bakım ve cilt bakımı." />
+  <meta name="twitter:image" content="assets/img/hero.jpg" />
+
+  <!-- Favicon: harici dosya yerine inline SVG, ekstra istek yaratmaz -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23211a17'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23a8632f' font-family='Georgia,serif'%3EB%3C/text%3E%3C/svg%3E" />
+
+  <!-- ============================================================
+       HARİCİ KÜTÜPHANELER — Bootstrap 5.3 (CDN) + Bootstrap Icons +
+       Google Fonts (Fraunces: başlıklar / Jost: gövde metni).
+       Derleme adımı yok; site doğrudan bir statik dosya sunucusuyla
+       açılır (bkz. README).
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Kendi stilimiz Bootstrap'ten SONRA: override sırası için önemli.
+       ?v= parametresi tarayıcı cache'ini kırmak için, her önemli
+       değişiklikte artırılabilir. -->
+  <link rel="stylesheet" href="style.css?v=1" />
+
+  <!-- ============================================================
+       SEO — Yapılandırılmış Veri (JSON-LD / schema.org)
+       Google'ın işletmeyi "HairSalon" olarak tanıması, arama
+       sonuçlarında adres/saat/telefon gibi zengin bilgi göstermesi
+       için. Sayfa görünümünü etkilemez.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Bakır Atölye Kuaför & Güzellik",
+    "image": "https://demo.demosantia.com/kuafor/assets/img/hero.jpg",
+    "@id": "https://demo.demosantia.com/kuafor/",
+    "url": "https://demo.demosantia.com/kuafor/",
+    "telephone": "+905421234567",
+    "priceRange": "₺₺",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Papatya Sokak No:14",
+      "addressLocality": "Beşiktaş",
+      "addressRegion": "İstanbul",
+      "postalCode": "34353",
+      "addressCountry": "TR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:30",
+        "closes": "19:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://instagram.com/",
+      "https://wa.me/905421234567"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR — tek sayfa içi çapa (anchor) linkleri
+       ============================================================ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">Bakır <span>Atölye</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarContent" aria-controls="navbarContent"
+              aria-expanded="false" aria-label="Menüyü aç/kapat">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#hakkimizda">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hizmetler">Hizmetler</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="#saatler">Saatler &amp; Konum</a></li>
+          <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+          <li class="nav-item">
+            <a class="btn btn-brand ms-lg-2" href="tel:+905421234567"><i class="bi bi-telephone-fill"></i> Hemen Ara</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <header id="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <p class="eyebrow">Beşiktaş · İstanbul · 2016'dan beri</p>
+        <h1 class="hero-title">Saçın da bir atölyesi olmalı.</h1>
+        <p class="hero-sub">Kesim, boya, bakım ve cilt hizmetlerinde ustalık ve özen. Randevunuzu tek dokunuşla ayarlayın, gerisini bize bırakın.</p>
+        <div class="hero-btns">
+          <a href="tel:+905421234567" class="btn btn-brand btn-lg"><i class="bi bi-telephone-fill"></i> Randevu İçin Ara</a>
+          <a href="https://wa.me/905421234567?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn-outline-brand btn-lg"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         HAKKIMIZDA
+         ============================================================ -->
+    <section id="hakkimizda" class="section">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-12 col-lg-6">
+            <p class="sec-eyebrow">Hakkımızda</p>
+            <h2 class="sec-title">Ustalık, sabır ve iyi bir kahve eşliğinde.</h2>
+            <p class="sec-lead">
+              Bakır Atölye, 2016'dan bu yana Beşiktaş'ta hizmet veren küçük ama özenli bir
+              kuaför ve güzellik atölyesidir. Her müşteriyle yeterince zaman geçiriyor,
+              acele etmeden çalışıyoruz. Ekibimiz düzenli olarak eğitim alır, kullandığımız
+              ürünler profesyonel markalardır.
+            </p>
+            <div class="about-stats">
+              <div class="about-stat"><strong>9</strong><span>yıllık deneyim</span></div>
+              <div class="about-stat"><strong>4</strong><span>uzman ekip üyesi</span></div>
+              <div class="about-stat"><strong>4.9</strong><span>ortalama memnuniyet</span></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="about-visual">
+              <div>
+                <span class="quote-mark">"</span>
+                <p>Bir saat kesimi değil, bir haftanın moralini ayarlıyoruz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HİZMETLER + FİYAT TABLOSU
+         ============================================================ -->
+    <section id="hizmetler" class="section alt">
+      <div class="container">
+        <p class="sec-eyebrow">Hizmetler</p>
+        <h2 class="sec-title">Hizmet Listesi &amp; Fiyatlar</h2>
+        <p class="sec-lead mb-4">Fiyatlar saç uzunluğu ve yoğunluğuna göre değişebilir; kesin fiyat yerinde ücretsiz danışma ile netleşir.</p>
+
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <h3 class="service-group-title">Saç</h3>
+            <div class="price-table mb-4">
+              <div class="price-row">
+                <span><span class="p-name">Kadın Saç Kesimi</span><span class="p-desc">Yıkama + fön dahil</span></span>
+                <span class="p-value">450 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Erkek Saç Kesimi</span><span class="p-desc">Yıkama dahil</span></span>
+                <span class="p-value">250 ₺</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Saç Boyası</span><span class="p-desc">Tek renk, kök boyası</span></span>
+                <span class="p-value">700 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Röfle / Balyaj</span><span class="p-desc">Saç uzunluğuna göre</span></span>
+                <span class="p-value">1.400 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Keratin Bakım</span></span>
+                <span class="p-value">1.800 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Fön &amp; Şekillendirme</span></span>
+                <span class="p-value">300 ₺</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <h3 class="service-group-title">Cilt &amp; Bakım</h3>
+            <div class="price-table mb-4">
+              <div class="price-row">
+                <span><span class="p-name">Klasik Cilt Bakımı</span><span class="p-desc">Temizlik + maske</span></span>
+                <span class="p-value">650 ₺</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Kaş Tasarımı</span></span>
+                <span class="p-value">150 ₺</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Manikür</span></span>
+                <span class="p-value">300 ₺</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Pedikür</span></span>
+                <span class="p-value">350 ₺</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Ağda (Bölgesel)</span></span>
+                <span class="p-value">200 ₺'den</span>
+              </div>
+              <div class="price-row">
+                <span><span class="p-name">Gelin Paketi</span><span class="p-desc">Saç + makyaj, randevulu</span></span>
+                <span class="p-value">Fiyat için arayın</span>
+              </div>
+            </div>
+            <p class="price-note">* Fiyatlar 2026 sezonu içindir, ürün ve işçilik maliyetlerine göre güncellenebilir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GALERİ — fotoğraf yerine tipografik/desen blokları
+         (marka güvenliği + hız için; iyi tasarım fotoğrafsız da satar)
+         ============================================================ -->
+    <section id="galeri" class="section">
+      <div class="container">
+        <p class="sec-eyebrow">Galeri</p>
+        <h2 class="sec-title">Atölyeden Kareler</h2>
+        <div class="row g-3">
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g1"><span>Kesim Alanı</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g2"><span>Renklendirme</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g3"><span>Bakım Odası</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g4"><span>Bekleme Alanı</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g5"><span>Ürün Rafı</span></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="gallery-item g6"><span>Detaylar</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ÇALIŞMA SAATLERİ + KONUM
+         ============================================================ -->
+    <section id="saatler" class="section alt">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-12 col-lg-5">
+            <p class="sec-eyebrow">Çalışma Saatleri</p>
+            <h2 class="sec-title">Ne Zaman Açığız?</h2>
+            <ul class="hours-list">
+              <li data-day="1"><span>Pazartesi</span><strong>09:30 – 19:30</strong></li>
+              <li data-day="2"><span>Salı</span><strong>09:30 – 19:30</strong></li>
+              <li data-day="3"><span>Çarşamba</span><strong>09:30 – 19:30</strong></li>
+              <li data-day="4"><span>Perşembe</span><strong>09:30 – 19:30</strong></li>
+              <li data-day="5"><span>Cuma</span><strong>09:30 – 19:30</strong></li>
+              <li data-day="6"><span>Cumartesi</span><strong>10:00 – 18:00</strong></li>
+              <li data-day="7"><span>Pazar</span><strong>Kapalı</strong></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-7">
+            <p class="sec-eyebrow">Konum</p>
+            <h2 class="sec-title">Bizi Bulun</h2>
+            <div class="map-frame">
+              <iframe
+                src="https://maps.google.com/maps?q=Be%C5%9Fikta%C5%9F%2C%20%C4%B0stanbul&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                title="Bakır Atölye konum haritası" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         İLETİŞİM
+         ============================================================ -->
+    <section id="iletisim" class="section">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-7">
+              <p class="sec-eyebrow" style="color: var(--gold);">İletişim</p>
+              <h2>Randevu Almak İster misiniz?</h2>
+              <ul class="contact-list">
+                <li><i class="bi bi-geo-alt-fill"></i> Papatya Sokak No:14, Beşiktaş, İstanbul</li>
+                <li><i class="bi bi-telephone-fill"></i> <a href="tel:+905421234567">+90 542 123 45 67</a></li>
+                <li><i class="bi bi-envelope-fill"></i> <a href="mailto:merhaba@bakiratolye.demo">merhaba@bakiratolye.demo</a></li>
+              </ul>
+              <div class="contact-cta">
+                <a href="tel:+905421234567" class="btn btn-brand"><i class="bi bi-telephone-fill"></i> Ara</a>
+                <a href="https://wa.me/905421234567?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" rel="noopener" class="btn btn-outline-brand"><i class="bi bi-whatsapp"></i> WhatsApp'tan Yaz</a>
+              </div>
+            </div>
+            <div class="col-12 col-lg-5">
+              <div class="about-visual" style="min-height:180px; background: linear-gradient(150deg, var(--gold), var(--copper) 140%);">
+                <p style="font-style: normal; font-size: 1rem;">Bu, Demosantia tarafından hazırlanmış <strong>örnek bir demo sitedir</strong>. İşletme adı ve bilgileri kurgusaldır.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-12 col-md-6">
+          <span class="footer-brand">Bakır <span>Atölye</span></span>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" class="text-decoration-none" style="color: var(--gold); font-size: 1.3rem;"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Bakır Atölye. Tüm hakları saklıdır.</span>
+        <span>Web tasarım: <a href="#" style="color: var(--gold);">Demosantia</a> — bu bir portfolyo demosudur.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sağ altta sabit hızlı erişim butonları -->
+  <a href="https://wa.me/905421234567" target="_blank" rel="noopener" id="whatsappFab" aria-label="WhatsApp ile yaz">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <a href="tel:+905421234567" id="callFab" aria-label="Hemen ara">
+    <i class="bi bi-telephone-fill"></i>
+  </a>
+  <button id="scrollTop" aria-label="Yukarı çık"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Scriptler: önce Bootstrap, en son kendi kodumuz -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
